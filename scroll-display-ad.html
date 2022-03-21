@@ -1,0 +1,199 @@
+<style>
+  #display-main * {margin:0;padding:0; line-height:1; box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;}
+  #display-main *:before, *:after {box-sizing: inherit;}
+  #display-main img {display: block;}
+  #display-main a {text-decoration: none;cursor: pointer;display:block;overflow:hidden;}
+  #display-main a img {border: 0;}
+  #display-main {
+    height:600px;
+    width:300px;
+    background-image: url(assets/bg.jpg);
+    background-repeat: no-repeat;
+    font-family: 'Roboto';
+  }
+
+  #display-content {
+    padding: 0 25px;
+  }
+
+  #display-headline {
+    padding-bottom: 15px;
+  }
+  
+    #display-headline a {
+      color: #1D1D1B;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 29px;
+    }
+
+    #display-description a {
+      color: #1D1D1B;
+      font-size: 15px;
+      line-height: 19px;
+    }
+
+    #display-logo {
+    margin: 20px 25px;
+    width: 150px;
+    height: 38px;
+    border: 1px solid #82c7b3;
+    }
+
+    #display-logo a {
+      color: #82c7b3;
+      font-weight: 700;
+      padding: 10px 5px;
+      text-align: center;
+    }
+
+  #display-button {
+    border: 1px solid transparent;
+    border-radius: 25px;
+    width: 130px;
+    height: 25px;
+    background-color: #82c7b3;
+    position: absolute;
+    left: 25px;
+    bottom: 115px;
+  }
+
+  #display-button a {
+    color: #1D1D1B;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    }
+
+  #display-wrapper {
+   position: absolute;
+   height:600px;
+   width:300px;
+   border: 1px solid #1D1D1B;
+   }
+
+   #scroll-area {
+     padding-right: 15px;
+     height:350px;
+     overflow-y: auto;
+     overflow-x: hidden;
+   }
+
+   .scroll-box{
+    background: #ffffff;
+    /*border:1px solid #d0d0d0;*/
+   }
+
+  #display-main .scrollbar::-webkit-scrollbar {width: 10px;height: 15px;}
+  #display-main .scrollbar::-webkit-scrollbar-track-piece  {background-color: #cdced2;}
+  #display-main .scrollbar::-webkit-scrollbar-thumb:vertical {height: 40px;background-color: #66666a;}
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.eot');
+    src: url('fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Roboto-Regular.woff2') format('woff2'),
+        url('fonts/Roboto-Regular.woff') format('woff'),
+        url('fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+</style> 
+         
+<div id="display-main">
+  <div id="display-wrapper"> 
+
+      <div id="display-logo">
+        <a id="sm-logo" target="_blank" href="">Logo</a>
+      </div>
+     
+
+    <div id="display-content">
+
+      <div id="scroll-area" class="scrollbar scroll-box">
+        <div id="scroll-wrapper">
+
+          <div id="display-headline">
+            <a id="sm-headline" target="_blank" href="">The quick, brown fox jumps over a lazy dog.</a>
+          </div>
+          <div id="display-description">
+            <a id="sm-content" target="_blank" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                <br><br> 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis molestie a iaculis at erat. Nullam non nisi est sit amet facilisis magna etiam. Netus et malesuada fames ac turpis egestas integer eget aliquet. Ultricies mi quis hendrerit dolor magna eget est lorem. Rhoncus mattis rhoncus urna neque viverra. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus. Purus in mollis nunc sed id. Leo integer malesuada nunc vel risus commodo. Mauris pharetra et ultrices neque.</a>
+          </div>
+         </div>
+        </div>
+    </div> 
+
+     <div id="display-footer">
+
+      <div id="display-button">
+       <a id="sm-cta" target="_blank" href="">READ MORE</a>
+      </div>
+
+
+     </div>
+
+  </div>
+</div>
+
+<script>
+    function ready(fn) {
+        if (document.readyState != 'loading'){
+          fn();
+        } else {
+          document.addEventListener('DOMContentLoaded', fn);
+        }
+    };
+
+    function scrollInit() {
+        var scroll_map = 
+          document.getElementById("scroll-wrapper"),
+          scrollContainer = document.getElementById("scroll-area"),
+          scrollContainerHeight = scrollContainer.clientHeight,
+          scrollHeight = scroll_map.offsetHeight,
+          full = scrollHeight - scrollContainerHeight - 30,
+          quarter = full / 4,
+          half = quarter * 2,
+          threeQuarter = quarter * 3,
+          scrollTop = scroll_map.scrollTop,
+          progress = 0,
+          quarterFired = 0,
+          halfFired = 0,
+          threeQuarterFired = 0,
+          fullFired = 0,
+          milestones = [{state:25,val:quarter},{state:50,val:half},{state:75,val:threeQuarter},{state:100,val:full}];
+        scrollContainer.onscroll = function(){
+        for (var i=0; i < milestones.length; i++){
+            if (scrollContainer.scrollTop >= milestones[i].val){
+            progress = milestones[i].state;
+            }
+            if (progress === 25 && quarterFired === 0){
+            sendTracking('scrolled 25%');
+            quarterFired++;
+            }
+            if (progress == 50 && halfFired === 0){
+            sendTracking('scrolled 50%');
+            halfFired++;
+            }
+            if (progress == 75 && threeQuarterFired === 0){
+            sendTracking('scrolled 75%');
+            threeQuarterFired++;
+            }
+            if (progress == 100 && fullFired === 0){
+            sendTracking('scrolled bottom');
+            fullFired++;
+            }
+          }
+        }
+
+        sendTracking = function(actionName) {
+            eventTracker.sendEventData('${advertiserContentId}', uniqueCacheBuster, displayCreativeId, 'scrollProgress', actionName, publisherPageUrl);
+        };
+    };
+    ready(scrollInit);
+</script>

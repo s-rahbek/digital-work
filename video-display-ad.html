@@ -1,0 +1,129 @@
+<style>
+
+  #display-main * {margin:0;padding:0; line-height:1; box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;}
+  #display-main *:before, *:after {box-sizing: inherit;}
+  #display-main img {display: block;}
+  #display-main a {text-decoration: none;cursor: pointer;display:block;overflow:hidden;}
+  #display-main a img {border: 0;}
+  #display-main {
+    height:600px;
+    width:300px;
+    background-color: #fff;
+    font-family: 'Roboto';
+  }  
+
+  #display-content {
+    padding: 10px 20px 20px;
+  }
+
+  #display-video {
+    padding: 90px 0 10px;
+  }
+
+  #display-headline {
+    padding-bottom: 15px;
+  }
+  
+    #display-headline a {
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #1d1d1b;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    #display-description a {
+      color: #1d1d1b;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    #display-logo {
+    margin: 20px 20px 0;
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: #c81517;
+    }
+
+    #display-logo a {
+    padding: 17px 0;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    }
+
+  #display-footer {
+    padding: 20px;
+  }  
+
+  #display-button {
+    width: 100px;
+    height: 30px;
+    background-color: #c81517;
+    float: right;
+  }
+
+  #display-button a {
+    color: #fff;
+    font-size: 12px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    }
+
+  #display-wrapper {
+   height:600px;
+   width:300px;
+   border: 1px solid #1d1d1b;
+   }
+
+   @font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.eot');
+    src: url('fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Roboto-Regular.woff2') format('woff2'),
+        url('fonts/Roboto-Regular.woff') format('woff'),
+        url('fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+</style> 
+         
+<div id="display-main">
+  <div id="display-wrapper"> 
+
+      <div id="display-logo">
+        <a id="sm-logo" target="_blank" href="">Logo</a>
+      </div>
+
+      <div id="display-video">
+        <video width="298" height="168" controls>
+            <source src="assets/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+    </div>
+    <div id="display-content">
+
+          <div id="display-headline">
+            <a id="sm-headline" target="_blank" href="">The quick, brown fox jumps over a lazy dog.</a>
+          </div>
+          <div id="display-description">
+            <a id="sm-content" target="_blank" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </a>
+          </div>
+
+    </div> 
+
+     <div id="display-footer">
+
+      <div id="display-button">
+       <a id="sm-cta" target="_blank" href="">watch video</a>
+      </div>
+
+
+     </div>
+
+  </div>
+</div>

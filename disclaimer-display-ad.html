@@ -1,0 +1,192 @@
+
+<style>
+  #display-main * {margin:0;padding:0; line-height:1; box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;}
+  #display-main *:before, *:after {box-sizing: inherit;}
+  #display-main img {display: block;}
+  #display-main a {text-decoration: none;cursor: pointer;display:block;overflow:hidden;color:#000;}
+  #display-main a img {border: 0;}
+  #display-main {
+    height:250px;
+    width:970px;
+    background: url(assets/billboard-bg.png);
+    font-family: 'Roboto';
+  }
+
+  #display-logo {
+    width: 120px;
+    height: 25px;
+    background-color: #d3d3d3;
+    padding: 2px;
+    float: right;
+  }
+
+  #display-logo a {
+    color: white;
+    text-align: center;
+  }
+    #content-wrapper{
+        height: 150px;
+    }
+  #display-content {
+    margin: 20px 0 20px 20px;
+    padding: 25px 10px 16px;
+    width: 520px;
+    height: 210px;
+    background: #fff;
+    float: left;
+  }
+        
+  #display-headline a {
+    color: #444e55;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  #display-description a {
+    color: #444e55;;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 10px 0;
+  }
+
+  #display-button {
+    width: 100px;
+    height: 25px;
+    background: #951826;
+    margin-top: -5px;
+    float: left
+  }
+  
+  #display-button a {
+      color: #fff;
+      text-align: center;
+      width: 100px;
+      line-height:25px;
+      font-size:15px;
+    }
+
+  #display-wrapper {
+    height:250px;
+    width: 970px;
+    border: 1px solid #bbcfd8;
+    position: relative;
+   }
+
+    #display-image {
+      margin: 20px 20px 20px 0;
+      width: 408px;
+      float: right;
+    }
+    
+    #display-footer-disclaimer {
+        position: absolute;
+        bottom: 3px;
+        left: 10px;
+        font-size: 10px;
+        font-weight: bold;
+        color: #2d343a;
+        font-family: Arial,Helvetica,sans-serif;
+        text-transform: uppercase;
+  }
+  
+  #disclaimer-headline h1{
+      font-family: Arial, helvetica, sans-serif;
+        color: #394349;
+        font-size: 24px;
+        line-height: 28px;
+  }
+  
+  #display-disclaimer-content p, #display-disclaimer-content b {
+    margin-top: 13px;
+        color: #2d343a;
+        font-family: Arial, Helvetica, sans-serif; 
+        font-size: 12px;
+        line-height: 16px;
+  }
+  #disclaimer-button-title, #disclaimer-button-close {
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+  #display-disclaimer-content {
+      margin: 20px;
+      overflow-y: auto;
+      float: left;
+    }
+
+    @font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.eot');
+    src: url('fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Roboto-Regular.woff2') format('woff2'),
+        url('fonts/Roboto-Regular.woff') format('woff'),
+        url('fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+</style> 
+         
+<div id="display-main">
+  <div id="display-wrapper">
+   <div id="display-article-content">
+    <div id="display-content">
+      <div id="content-wrapper">
+        <div id="display-headline">
+          <a id="sm-headline" target="_blank" href="">The quick, brown fox jumps over a lazy dog.</a>
+        </div>
+        <div id="display-description">
+          <a id="sm-content" target="_blank" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum posuere lorem ipsum dolor sit amet consectetur. Molestie at elementum eu facilisis sed.</a>
+        </div>
+      </div>      
+       
+       <div id="display-button">
+        <a id="sm-cta" target="_blank" href="">Read more</a>
+      </div>
+
+
+      <div id="display-logo">
+        <a id="sm-logo" target="_blank" href="">Logo</a>
+      </div>
+    </div>
+    
+     <div id="display-image">
+      <img src="http://placeimg.com/408/210/nature" width="" height="" alt="">
+    </div>
+   </div> 
+    
+          <div id="display-disclaimer-content" style="display: none;">
+      <div id="disclaimer-headline">
+                <h1>Disclaimer</h1>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae justo eget magna fermentum iaculis eu. Ut tellus elementum sagittis vitae et leo. Ante in nibh mauris cursus. Velit euismod in pellentesque massa placerat duis ultricies lacus.</p>
+    </div>
+    <div id="display-footer-disclaimer">
+      <p id="disclaimer-button-title" onclick="openDisclaimer()">Important Information</p>
+      <p id="disclaimer-button-close" onclick="closeDisclaimer()" style="display: none;">Close</p>
+   </div>
+
+  </div>
+</div>
+
+<script>
+var contentDisclaimer = document.getElementById("display-disclaimer-content"),
+  contentWrapper = document.getElementById("display-article-content"),
+  disclaimerClose = document.getElementById("disclaimer-button-close"),
+  disclaimerTitle = document.getElementById("disclaimer-button-title");
+
+function openDisclaimer() {
+    contentWrapper.style.display = 'none';
+    contentDisclaimer.style.display = 'block';
+    disclaimerTitle.style.display = "none";
+    disclaimerClose.style.display = "block";
+}
+
+function closeDisclaimer() {
+    contentDisclaimer.style.display = 'none';
+    contentWrapper.style.display = 'block';
+    disclaimerTitle.style.display = "block";
+    disclaimerClose.style.display = "none";
+}
+</script>
